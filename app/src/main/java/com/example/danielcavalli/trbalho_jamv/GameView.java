@@ -5,45 +5,81 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Handler;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 
 import java.util.ArrayList;
 
 public class GameView extends View implements Runnable{
 
-    public Handler handler = new Handler();
+    public Handler handler;
     public Player Jamv;
-    public ArrayList<Platform> pL;
+    public ArrayList<b1> pL;
+    public ArrayList<b2> pL2;
     public static boolean movControl;
+    public static int screenW, screenH;
 
     public GameView (Context c)
     {
         super(c);
-        Jamv = new Player(50,1024,c);
+
+        screenW = c.getResources().getDisplayMetrics().widthPixels;
+        screenH = c.getResources().getDisplayMetrics().heightPixels;
+
+        Jamv = new Player(50,50,c);
         int m =300;
-        pL = new ArrayList<Platform>();
-        pL.add(new Platform(300));
-        pL.add(new Platform(400));
-        pL.add(new Platform(500));
+        pL = new ArrayList<b1>();
+        pL.add(new b1(c));
+        pL.add(new b1(c));
+        pL2 = new ArrayList<b2>();
+        pL2.add(new b2(c));
+        pL2.add(new b2(c));
+
+        handler = new Handler();
+        handler.post(this);
+    }
+    public boolean onTouchEvent(MotionEvent event)
+    {
+
+        if(event.getAction() == MotionEvent.ACTION_DOWN)
+        {
+            Jamv.changeGravity();
+        }
+        return true;
+    }
+
+    private void update()
+    {
+        Jamv.Update();
+        for(b1 p : pL)
+        {
+            p.Update();
+        }
+        for(b2 p : pL2)
+        {
+            p.Update();
+        }
     }
 
     @Override
     protected void onDraw(Canvas canvas)
     {
-        invalidate();
+        //invalidate();
         super.onDraw(canvas);
-        for(Platform p : pL){
-            p.Update(canvas);
-            p.Draw(canvas);
-           // Log.d("MainActivity",p.x +","+p.y);
-        }
 
+        pL.get(0).Draw(canvas);
+        pL2.get(0).Draw(canvas);
+        pL.get(1).Draw(canvas);
+        pL2.get(1).Draw(canvas);
         Jamv.Draw(canvas);
-        Jamv.Update(canvas.getWidth(), canvas.getHeight(), pL, canvas);
     }
+
     @Override
     public void run(){
-        handler.postDelayed(this,30);
+
+        handler.postDelayed(this, 30);
+
+        update();
         invalidate();
     }
 }

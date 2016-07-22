@@ -5,11 +5,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-
+import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.opengl.Matrix;
-import android.view.MotionEvent;
-import android.view.View;
 
 import java.util.ArrayList;
 
@@ -20,30 +17,25 @@ public class Player
 {
     public int x;
     public int y;
-    public int w = 50;
-    public int h = 50;
-    public float g = 10;
+    public int w = 162;
+    public int h = 256;
+    public float g = 50;
+    public float temp = 0;
     public Paint color;
     public Context ctx;
+    private Bitmap b;
 
     public Player(int x2, int y2,Context c)
     {
         x = x2;
         y = y2;
         ctx = c;
+        color = new Paint();
+        color.setColor(Color.WHITE);
+        b = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.dezessete);
+
     }
-
-
-    public boolean onTouch( View v , MotionEvent mt){
-
-        int action = mt.getAction();
-        if(action == mt.ACTION_DOWN)
-        {
-            x = round(mt.getX());
-        }
-        return true;
-    }
-    /*public Bitmap getResizedBitmap(Bitmap bm, int newHeight, int newWidth)
+    public Bitmap getResizedBitmap(Bitmap bm, int newHeight, int newWidth)
     {
         int width = bm.getWidth();
         int height = bm.getHeight();
@@ -55,49 +47,33 @@ public class Player
         matrix.postScale(scaleWidth, scaleHeight);
         Bitmap resizedBitmap = Bitmap.createBitmap(bm, 0, 0, width, height, matrix, false);
         return resizedBitmap;
-    }*/
-
+    }
     public void Draw(Canvas canvas)
     {
-        color=new Paint();
-        Bitmap b = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.player);
-        //b = getResizedBitmap(b,h,w);
-        //b.setHeight(h);
-        color.setColor(Color.BLUE);
         canvas.drawBitmap(b, x, y, color);
     }
-
+    public void changeGravity()
+    {
+        g *= -1;
+    }
     boolean Collision(int x1,int y1,int w1, int h1)
     {
         return ((x+w > x1) && (x < x1 + w1) && (y+h <= y1) && (y+h >= y1 - 3));
     }
 
-    public void Update(int cW,int cH, ArrayList<Platform> pL ,Canvas c)
+    public void Update()
     {
-        for(Platform p : pL)
+        int cH = GameView.screenH;
+        y -= g;
+        if(y < 0)
         {
-            if((Collision(p.x, p.y, p.w, p.h)) && (g >= 0))
-            {
-                g =-50;
-                p.g = 15;
-            }
+            y +=g;
+            y = 0;
         }
-        if(g < 50) {
-            g += 2;
-        }
-        x -= MainActivity.x * 2.5;
-            y += g;
-        if(y+4*h >= cH)
+        if(y > cH-h)
         {
-            g = -50;
-        }
-        if(x +4*w < 0)
-        {
-            x = c.getWidth();
-        }
-        else if (x+3 > c.getWidth())
-        {
-            x = -w;
+            y -=g;
+            y = cH-h;
         }
     }
 }

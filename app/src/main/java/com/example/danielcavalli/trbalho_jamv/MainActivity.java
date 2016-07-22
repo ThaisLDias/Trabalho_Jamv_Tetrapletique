@@ -25,4 +25,16 @@ public class MainActivity extends AppCompatActivity{
         setContentView(gameviewer);
 
     }
+   /* @Override
+    public boolean onTouchEvent(MotionEvent mt){
+
+        int action = mt.getAction();
+        if(action == mt.ACTION_DOWN)
+        {
+           Log.e("MainActivity", "Viado");
+
+        }
+        return false;
+
+    }*/
 }

@@ -8,17 +8,21 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 
-import java.util.ArrayList;
-
-import static java.lang.Math.*;
-
-
+/**
+ * CREATED BY
+ * Alphabet Inc. | Headquartered in Mauntain View, California
+ * IN A PARTNERSHIP WITH
+ * Facebook Enterprises | Headquartered in Palo Alto, California
+ * AND
+ * Inc. Agency | Headquartered in Maricá, Rio de Janeiro
+ * ON 22/07/2016.
+ */
 public class Player
 {
     public int x;
     public int y;
-    public int w = 162;
-    public int h = 256;
+    public int w = 146;
+    public int h = 230;
     public float g = 50;
     public float temp = 0;
     public Paint color;
@@ -33,7 +37,7 @@ public class Player
         color = new Paint();
         color.setColor(Color.WHITE);
         b = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.dezessete);
-
+        b = getResizedBitmap(b,h,w);
     }
     public Bitmap getResizedBitmap(Bitmap bm, int newHeight, int newWidth)
     {
@@ -56,30 +60,25 @@ public class Player
     {
         g *= -1;
     }
-    boolean Collision(int x1,int y1,int w1, int h1)
+    boolean Col(int x1,int y1,int w1, int h1)
     {
-        return ((x+w > x1) && (x < x1 + w1) && (y+h <= y1) && (y+h >= y1 - 3));
+        return ((x + w >= x1) && (y + h >= y1) && x <= x1 + w1 && y <= y1 + h1);
     }
 
     public void Update()
     {
         int cH = GameView.screenH;
-
         y -= g;
         if(y < 0)
         {
             y +=g;
             y = 0;
-
         }
         if(y > cH-h-(h/3)+12)
         {
             y -=g;
             y = cH-h-(h/3)+12;
-
         }
-
-
     }
 }
 

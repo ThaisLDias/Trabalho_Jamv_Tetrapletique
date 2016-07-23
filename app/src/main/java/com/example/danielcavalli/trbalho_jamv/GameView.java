@@ -2,16 +2,22 @@ package com.example.danielcavalli.trbalho_jamv;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.graphics.Paint;
-
-
 import java.util.ArrayList;
 
+/**
+ * CREATED BY
+ * Alphabet Inc. | Headquartered in Mauntain View, California
+ * IN A PARTNERSHIP WITH
+ * Facebook Enterprises | Headquartered in Palo Alto, California
+ * AND
+ * Inc. Agency | Headquartered in Maricá, Rio de Janeiro
+ * ON 22/07/2016.
+ */
 public class GameView extends View implements Runnable{
 
     public Handler handler;
@@ -20,7 +26,13 @@ public class GameView extends View implements Runnable{
     public ArrayList<b2> pL2;
     public static boolean movControl;
     public static int screenW, screenH;
-    public static  int score;
+    public boolean died1;
+    public died morreu;
+    public boolean co;
+    int timer;
+    public int score;
+    public fundo f1;
+    public fundo f2;
 
     public GameView (Context c)
     {
@@ -28,9 +40,7 @@ public class GameView extends View implements Runnable{
 
         screenW = c.getResources().getDisplayMetrics().widthPixels;
         screenH = c.getResources().getDisplayMetrics().heightPixels;
-
-        //score = 0;
-
+        morreu = new died(c);
         Jamv = new Player(50,50,c);
         int m =300;
         pL = new ArrayList<b1>();
@@ -39,8 +49,12 @@ public class GameView extends View implements Runnable{
         pL2 = new ArrayList<b2>();
         pL2.add(new b2(c));
         pL2.add(new b2(c));
-
+        died1 = false;
         handler = new Handler();
+        co = false;
+        timer = 10;
+        f1 = new fundo(c,0);
+        f2 = new fundo(c,screenW);
         handler.post(this);
     }
     public boolean onTouchEvent(MotionEvent event)
@@ -48,8 +62,22 @@ public class GameView extends View implements Runnable{
 
         if(event.getAction() == MotionEvent.ACTION_DOWN)
         {
-            Jamv.changeGravity();
+            if(!died1)
+            {
+                Jamv.changeGravity();
+            }
+            else
+            {
+                if(timer < 0)
+                {
+                    co = false;
+                    timer = 10;
+                    score = 0;
+                    died1=false;
+                }
+            }
         }
+
         return true;
     }
 
@@ -59,50 +87,54 @@ public class GameView extends View implements Runnable{
         for(b1 p : pL)
         {
             p.Update();
-            if(Jamv.Collision(p.x,p.y,p.w,p.h))
+            if(Jamv.Col(p.x,p.y,p.w,p.h))
             {
-                //player morre ai já nsei o que rola
+                died1 = true;
+                p.x = 5000;
             }
         }
         for(b2 p : pL2)
         {
             p.Update();
-            if(Jamv.Collision(p.x,p.y,p.w,p.h))
+            if(Jamv.Col(p.x,p.y,p.w,p.h))
             {
-                //player morre ai já nsei o que rola
+                p.x = 5000;
+                died1 = true;
             }
         }
-        Log.d("MainActivity",Float.toString(score));
-
-        score += 1;
-        if(score > 1000){
-            MainActivity l = new MainActivity();
-            l.gameOver();
-        }
-        Log.e("MainActivity",Float.toString(score));
+        score += 3;
+        f1.Update();
+        f2.Update();
     }
-
-
 
     @Override
     protected void onDraw(Canvas canvas)
     {
-        //invalidate();
-        super.onDraw(canvas);
         Paint p = new Paint();
         p.setTextSize(50f);
+        super.onDraw(canvas);
+        if(!died1)
+        {
+            f1.Draw(canvas);
+            f2.Draw(canvas);
+            pL.get(0).Draw(canvas);
+            pL2.get(0).Draw(canvas);
+            pL.get(1).Draw(canvas);
+            pL2.get(1).Draw(canvas);
+            Jamv.Draw(canvas);
 
-
-        pL.get(0).Draw(canvas);
-        pL2.get(0).Draw(canvas);
-        pL.get(1).Draw(canvas);
-        pL2.get(1).Draw(canvas);
-        Jamv.Draw(canvas);
-
-        canvas.drawText("Pontos: " + (score/10), (canvas.getWidth() / 2), 50, p);
-
-
-
+            canvas.drawText("Pontos: " + (score/10) + "%", (canvas.getWidth() / 2), 50, p);
+        }
+        else
+        {
+            if(!co)
+            {
+                morreu.Update();
+                co = true;
+            }
+            else{
+            morreu.Draw(canvas);}
+        }
     }
 
     @Override
@@ -110,7 +142,19 @@ public class GameView extends View implements Runnable{
 
         handler.postDelayed(this, 30);
 
-        update();
+        if(!died1)
+        {
+            update();
+        }
+        else
+        {
+            timer--;
+        }
+        if(score > 1000)
+        {
+            MainActivity l = new MainActivity();
+            l.gameOver();
+        }
         invalidate();
     }
 }

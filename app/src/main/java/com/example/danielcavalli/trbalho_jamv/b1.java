@@ -5,9 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Matrix;
 import android.graphics.Paint;
-
 import java.util.Random;
 
 /**
@@ -36,8 +34,8 @@ public class b1
 
     public b1(Context c)
     {
-        y=1080-h;
-        x = 1920 + rand.nextInt(1250);
+        y=1080-h-(h/3);
+        x = 3200 + rand.nextInt(1250);
         ctx = c;
         color = new Paint();
         color.setColor(Color.WHITE);

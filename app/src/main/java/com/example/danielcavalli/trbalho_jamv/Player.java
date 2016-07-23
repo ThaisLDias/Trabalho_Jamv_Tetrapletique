@@ -64,17 +64,22 @@ public class Player
     public void Update()
     {
         int cH = GameView.screenH;
+
         y -= g;
         if(y < 0)
         {
             y +=g;
             y = 0;
+
         }
-        if(y > cH-h)
+        if(y > cH-h-(h/3)+12)
         {
             y -=g;
-            y = cH-h;
+            y = cH-h-(h/3)+12;
+
         }
+
+
     }
 }
 

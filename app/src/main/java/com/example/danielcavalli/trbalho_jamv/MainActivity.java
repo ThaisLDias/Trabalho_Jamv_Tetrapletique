@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 
 import static java.lang.Math.round;
+import android.content.Intent;
+
 
 public class MainActivity extends AppCompatActivity{
 
@@ -25,16 +27,14 @@ public class MainActivity extends AppCompatActivity{
         setContentView(gameviewer);
 
     }
-   /* @Override
-    public boolean onTouchEvent(MotionEvent mt){
 
-        int action = mt.getAction();
-        if(action == mt.ACTION_DOWN)
-        {
-           Log.e("MainActivity", "Viado");
+    public void gameOver()
+    {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction("JAMV");
+        sendIntent.putExtra("letter","E2");
+        startActivity(sendIntent);
+    }
 
-        }
-        return false;
 
-    }*/
 }

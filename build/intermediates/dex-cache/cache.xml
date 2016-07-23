@@ -2,46 +2,46 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\luis.silva\Downloads\Trabalho_Jamv_Tetrapletique-master\Trabalho_Jamv_Tetrapletique-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
-        <dex dex="C:\Users\luis.silva\Downloads\Trabalho_Jamv_Tetrapletique-master\Trabalho_Jamv_Tetrapletique-master\app\build\intermediates\pre-dexed\debug\classes-085290baa8267f6f0ad76cd7ce87e81d5d784899.jar" />
-    </item>
-    <item
-        jar="C:\Users\luis.silva\Downloads\Trabalho_Jamv_Tetrapletique-master\Trabalho_Jamv_Tetrapletique-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="C:\Users\luis.silva\Downloads\Trabalho_Jamv_Tetrapletique-master\Trabalho_Jamv_Tetrapletique-master\app\build\intermediates\pre-dexed\debug\internal_impl-23.4.0-5f9653137cff993104248b42d72f74396262d3f3.jar" />
-    </item>
-    <item
-        jar="C:\Users\luis.silva\Downloads\Trabalho_Jamv_Tetrapletique-master\Trabalho_Jamv_Tetrapletique-master\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="C:\Users\luis.silva\Downloads\Trabalho_Jamv_Tetrapletique-master\Trabalho_Jamv_Tetrapletique-master\app\build\intermediates\pre-dexed\debug\classes-7dd6ad7a94eaafa4d526bff370fb5b8230cb533f.jar" />
-    </item>
-    <item
-        jar="C:\Users\luis.silva\Downloads\Trabalho_Jamv_Tetrapletique-master\Trabalho_Jamv_Tetrapletique-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
-        <dex dex="C:\Users\luis.silva\Downloads\Trabalho_Jamv_Tetrapletique-master\Trabalho_Jamv_Tetrapletique-master\app\build\intermediates\pre-dexed\debug\classes-fab31d503f2d5ae01a8351fc9cea97cd43979577.jar" />
-    </item>
-    <item
-        jar="C:\Luis\AndroidSDK\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
-        <dex dex="C:\Users\luis.silva\Downloads\Trabalho_Jamv_Tetrapletique-master\Trabalho_Jamv_Tetrapletique-master\app\build\intermediates\pre-dexed\debug\support-annotations-23.4.0-81198a26fee9e3955b2feb9e4f27cc967ecd15bb.jar" />
-    </item>
-    <item
-        jar="C:\Users\luis.silva\Downloads\Trabalho_Jamv_Tetrapletique-master\Trabalho_Jamv_Tetrapletique-master\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        jar="C:\Users\Thaís Dias\Documents\GitHub\Trabalho_Jamv_Tetrapletique\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.3"
         sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
-        <dex dex="C:\Users\luis.silva\Downloads\Trabalho_Jamv_Tetrapletique-master\Trabalho_Jamv_Tetrapletique-master\app\build\intermediates\pre-dexed\debug\classes-387c5f419f3c328246d5670dd2776e70d9cdc42b.jar" />
+        <dex dex="C:\Users\Thaís Dias\Documents\GitHub\Trabalho_Jamv_Tetrapletique\app\build\intermediates\pre-dexed\debug\classes-9ba3388a45fa9b74000bf7bd87f1fff992144b7c.jar" />
+    </item>
+    <item
+        jar="C:\Android\sdk2\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="C:\Users\Thaís Dias\Documents\GitHub\Trabalho_Jamv_Tetrapletique\app\build\intermediates\pre-dexed\debug\support-annotations-23.4.0-55321dbe68ae3c7ce3c0d5c4360594f480481939.jar" />
+    </item>
+    <item
+        jar="C:\Users\Thaís Dias\Documents\GitHub\Trabalho_Jamv_Tetrapletique\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="C:\Users\Thaís Dias\Documents\GitHub\Trabalho_Jamv_Tetrapletique\app\build\intermediates\pre-dexed\debug\internal_impl-23.4.0-acd6885beb821a483e5b8a15aa2e64bd13311eee.jar" />
+    </item>
+    <item
+        jar="C:\Users\Thaís Dias\Documents\GitHub\Trabalho_Jamv_Tetrapletique\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="C:\Users\Thaís Dias\Documents\GitHub\Trabalho_Jamv_Tetrapletique\app\build\intermediates\pre-dexed\debug\classes-0f6e0eb766efbea4d5ce9278d7647a998bf24ee3.jar" />
+    </item>
+    <item
+        jar="C:\Users\Thaís Dias\Documents\GitHub\Trabalho_Jamv_Tetrapletique\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="C:\Users\Thaís Dias\Documents\GitHub\Trabalho_Jamv_Tetrapletique\app\build\intermediates\pre-dexed\debug\classes-36831bec1b7ebaa7cb213202e5673a90db4cb21c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Thaís Dias\Documents\GitHub\Trabalho_Jamv_Tetrapletique\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="C:\Users\Thaís Dias\Documents\GitHub\Trabalho_Jamv_Tetrapletique\app\build\intermediates\pre-dexed\debug\classes-aab7e567ea1f9712e866211d2b52b90ea77d63af.jar" />
     </item>
 
 </items>

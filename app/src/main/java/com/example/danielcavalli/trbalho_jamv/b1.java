@@ -11,8 +11,15 @@ import android.graphics.Paint;
 import java.util.Random;
 
 /**
- * Created by Alphabet Inc. | Headquartered in Mauntain View | on 22/07/2016.
+ * CREATED BY
+ * Alphabet Inc. | Headquartered in Mauntain View, California
+ * IN A PARTNERSHIP WITH
+ * Facebook Enterprises | Headquartered in Palo Alto, California
+ * AND
+ * Inc. Agency | Headquartered in Maricá, Rio de Janeiro
+ * ON 22/07/2016.
  */
+
 public class b1
 {
     public int x;
@@ -25,6 +32,7 @@ public class b1
     Random rand = new Random();
     int cW;
     Bitmap b;
+
 
     public b1(Context c)
     {
